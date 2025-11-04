@@ -23,7 +23,9 @@
   },
   "terminal.integrated.defaultProfile.windows": "Ubuntu (WSL)",
   "editor.formatOnSave": true,
-
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
   "git.confirmSync": false,
   "security.workspace.trust.untrustedFiles": "open",
   "git.autofetch": true,
