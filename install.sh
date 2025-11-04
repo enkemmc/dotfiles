@@ -116,6 +116,15 @@ main() {
         fi
     fi
 
+    # Install Shell configurations
+    if [ -d "$DOTFILES_DIR/shell" ]; then
+        print_info "Installing Shell configurations..."
+
+        if [ -f "$DOTFILES_DIR/shell/.aliases" ]; then
+            create_symlink "$DOTFILES_DIR/shell/.aliases" "$HOME/.aliases"
+        fi
+    fi
+
     print_info "Installation complete!"
     if [ -d "$BACKUP_DIR" ]; then
         print_info "Backups saved to: $BACKUP_DIR"

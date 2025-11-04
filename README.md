@@ -17,6 +17,12 @@ Cross-platform configuration files for development tools and applications.
 - `[g` / `]g` → Navigate errors
 - `<leader>w` → Save file
 
+### Shell
+- **.aliases** - Shell aliases for zsh/bash
+  - File listing shortcuts (lt, ll, la, l)
+  - Directory navigation shortcuts for common project paths
+  - Tool aliases (docker compose, claude)
+
 ## Installation
 
 ### Quick Start
@@ -29,7 +35,9 @@ cd ~/code/dotfiles
 The install script will:
 1. Detect your operating system (Linux, macOS, or Windows/WSL)
 2. Backup your existing configuration files
-3. Create symlinks from this repository to your VSCode config directory
+3. Create symlinks from this repository to:
+   - VSCode config directory
+   - Shell configuration files (~/.aliases)
 
 ### Platform-Specific Paths
 
@@ -60,6 +68,19 @@ ln -sf ~/code/dotfiles/vscode/keybindings.json ~/Library/Application\ Support/Co
 WIN_USER=$(cmd.exe /c "echo %USERNAME%" | tr -d '\r')
 ln -sf ~/code/dotfiles/vscode/settings.json "/mnt/c/Users/$WIN_USER/AppData/Roaming/Code/User/settings.json"
 ln -sf ~/code/dotfiles/vscode/keybindings.json "/mnt/c/Users/$WIN_USER/AppData/Roaming/Code/User/keybindings.json"
+```
+
+#### Shell Configurations (All Platforms)
+```bash
+ln -sf ~/code/dotfiles/shell/.aliases ~/.aliases
+```
+
+**Note**: Make sure your shell configuration file (`.zshrc` or `.bashrc`) sources the aliases file:
+```bash
+# Add to ~/.zshrc or ~/.bashrc
+if [ -f ~/.aliases ]; then
+    source ~/.aliases
+fi
 ```
 
 ## Uninstallation
@@ -139,6 +160,9 @@ dotfiles/
 ├── README.md              # This file
 ├── install.sh             # Cross-platform installation script
 ├── uninstall.sh           # Uninstallation script
+├── shell/
+│   ├── .aliases           # Shell aliases for zsh/bash
+│   └── README.md          # Shell configuration documentation
 └── vscode/
     ├── settings.json      # VSCode settings & vim bindings
     └── keybindings.json   # Custom keyboard shortcuts
@@ -147,7 +171,8 @@ dotfiles/
 ## Future Additions
 
 Consider adding:
-- Bash/Zsh configurations (`.bashrc`, `.zshrc`)
 - Git configuration (`.gitconfig`)
-- Terminal configurations
+- Terminal configurations (Alacritty, iTerm2, etc.)
+- Additional shell configurations (`.zshrc`, `.bashrc` full configs)
+- Tmux configuration (`.tmux.conf`)
 - Other editor configs (`.vimrc`, etc.)
