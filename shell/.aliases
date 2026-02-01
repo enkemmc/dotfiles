@@ -8,19 +8,5 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Directory navigation aliases
-alias nodedir='pushd ~/code/node'
-alias rustdir='pushd ~/code/rust'
-alias csdir='pushd ~/code/cs'
-alias ktdir='pushd ~/code/kotlin'
-alias gator='pushd ~/code/node/Gator'
-alias rclient='pushd ~/code/node/revzn-client'
-alias rjobs='pushd ~/code/node/revzn-jobserver'
-alias rapi='pushd ~/code/node/revzn-api-ts'
-alias rlocal='pushd ~/code/node/revzn-local-dev'
-alias rk8='pushd ~/code/node/revzn-k8'
-alias rtypes='pushd ~/code/node/revzn-types'
-
 # Tool aliases
 alias dc='docker compose'
-alias claude='/home/markenkema/.claude/local/claude'
